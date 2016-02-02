@@ -66,16 +66,16 @@ cacheSolve <- function(x, ...) {
 }
 
 ## Running of the functions:
-##   > h1 <- matrix(c(1,0,0,1), nrow=2)
+##   > h1 <- matrix(c(1,0,0,2), nrow=2)
 ##   > h1
 ##        [,1] [,2]
 ##   [1,]    1    0
-##   [2,]    0    1
+##   [2,]    0    2
 ##   > h <- makeCacheMatrix(h1)
 ##   > h$getMatrix()
 ##         [,1] [,2]
 ##   [1,]    1    0
-##   [2,]    0    1
+##   [2,]    0    2
 ##   > h_i <- cacheSolve(h)            ## h_i holds the inverse matrix returned by 'cacheSolve'
 ##   no cache: solving for Inverse     ## This message indicates that there is no cache and the 
 ##                                     ##   inverse is calculated using solve()
@@ -83,8 +83,8 @@ cacheSolve <- function(x, ...) {
 ##                                     ##   the function is run and there is no cache available
 ##   > h_i
 ##         [,1] [,2]
-##   [1,]    1    0
-##   [2,]    0    1
+##   [1,]    1   0.0
+##   [2,]    0   0.5
 ##   > h1 %*% h_i                      ## Actual matrix multiplication to test the inverse mathematically
 ##         [,1] [,2]
 ##   [1,]    1    0
@@ -94,7 +94,7 @@ cacheSolve <- function(x, ...) {
 ##   geting cached Matrix              ## This time the inverse matrix is fetched from cache
 ##   > h_i2                            ## and recomputation is avoided
 ##         [,1] [,2]
-##   [1,]    1    0
-##   [2,]    0    1
+##   [1,]    1   0.0
+##   [2,]    0   0.5
 ##   > identical(h_i, h_i2)            ## First and second run results (h_i and h_i2) are identical
 ##   [1] TRUE
